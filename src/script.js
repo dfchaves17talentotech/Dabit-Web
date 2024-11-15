@@ -1,6 +1,6 @@
-import {fetchContinentData, getDataContinents} from "./continents.js";
-import {fetchProjectsData, getDataProjects} from "./projects.js";
-import { formSubmit } from "./contact.js";
+import {fetchContinentData, getDataContinents} from "./components/continents.js"
+import {fetchProjectsData, getDataProjects} from "./components/projects.js";
+import { formSubmit } from "./components/contact.js";
 
 window.addEventListener('load', async () => {
     const continentData = await getDataContinents();
