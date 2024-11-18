@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dabit Technologies</title>
     <link rel="stylesheet" href="../../css/style.css">
-    <script type="module" src="../../src/admin/loadContinentsTable.js"></script>
+    <script type="module" src="../../src/admin/editContinents.js"></script>
 </head>
 <body>
     <header class="header" id="header">
@@ -23,10 +23,30 @@
             </ul>
         </nav>
     </header>
-    <section class="table_data" id="table_data">
-        <h2 class="form_title">Continentes</h2>
-        <div class="table-responsive" id="table_container">
-        </div>
+    <section class="form" id="formEditContinent">
+        <h2 class="form_title">Editar Continentes</h2>
+        <form class="form_form" id="editContinentForm">
+            <div class="form_input-container">
+                <label> Id:
+                    <input type="text" id="inputIdContinent" disabled>
+                </label>
+            </div>
+            <div class="form_input-container">
+                <label> Nombre:
+                    <input type="text" id="inputNameContinent" disabled>
+                </label>
+            </div>
+            <div class="form_input-container">
+                <label> Porcentaje:
+                    <input type="number" min="0" max="100" id="inputPercentContinent">
+                </label>
+            </div>
+            <div class="form_input-container">
+                <label>
+                    <input type="submit" value="Actualizar">
+                </label>
+            </div>
+        </form>
     </section>
     <footer>
         <strong>DaBit</strong> - Copyright - 2024

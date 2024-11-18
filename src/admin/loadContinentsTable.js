@@ -2,6 +2,12 @@ import {getDataContinents} from "../components/continents.js";
 
 window.addEventListener('load', async () => {
     await createTableContinents();
+    document.querySelectorAll(".button-Editar").forEach(button => {
+        button.addEventListener("click", (event) =>{
+            const continentId = event.target.id;
+            location.href = `editContinent.html?continentId=${continentId}`;
+        });
+    });
 });
 
 /**
@@ -52,8 +58,8 @@ const createRows = (data) => {
         tableDataId.appendChild(document.createTextNode(element._id));
         tableDataName.appendChild(document.createTextNode(element.continentName));
         tableDataPercent.appendChild(document.createTextNode(`${element.continentCoverage}%`));
-        tableDataEdit.appendChild(buttonComponent('Editar'));
-        tableDataDelete.appendChild(buttonComponent('Eliminar'));
+        tableDataEdit.appendChild(buttonComponent('Editar', element._id));
+        tableDataDelete.appendChild(buttonComponent('Eliminar', element._id));
         tableRow.appendChild(tableDataId);
         tableRow.appendChild(tableDataName);
         tableRow.appendChild(tableDataPercent);
@@ -69,9 +75,10 @@ const createRows = (data) => {
  * @param {*} buttonLabel 
  * @returns 
  */
-const buttonComponent = (buttonLabel) => {
+const buttonComponent = (buttonLabel, id) => {
     const button = document.createElement('button');
-    button.setAttribute('class', 'button');
+    button.setAttribute('class', `button button-${buttonLabel}`);
+    button.setAttribute('id', id);
     button.appendChild(document.createTextNode(buttonLabel));
     return button;
 }; 
