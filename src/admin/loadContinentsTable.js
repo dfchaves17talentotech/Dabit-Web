@@ -8,6 +8,18 @@ window.addEventListener('load', async () => {
             location.href = `editContinent.html?continentId=${continentId}`;
         });
     });
+
+    document.querySelectorAll(".button-Eliminar").forEach(button => {
+        button.addEventListener("click", async (event) =>{
+            const continentId = event.target.id;
+            const userResponse = confirm("Está seguro que desea eliminar el Continente?");
+            if(userResponse){
+                await deleteContinent(continentId);
+                alert('Continent Eliminado Correctamente.');
+                location.href = 'indexAdmin.html';
+            }
+        });
+    });
 });
 
 /**
@@ -82,3 +94,20 @@ const buttonComponent = (buttonLabel, id) => {
     button.appendChild(document.createTextNode(buttonLabel));
     return button;
 }; 
+
+
+const deleteContinent = async (id) => {
+    try {
+        let response = await fetch(`http://localhost:3000/api/continents/${id}`, 
+            {
+                method: 'DELETE', // Especifica el tipo de solicitud como PUT
+                headers: {
+                    'Content-Type': 'application/json', // Especifica que el contenido es JSON
+                },
+            }
+        );
+        return response;
+    } catch (error) {
+        console.error('Hubo un error');
+    }
+};
