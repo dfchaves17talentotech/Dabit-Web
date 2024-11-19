@@ -1,25 +1,31 @@
 import {getDataContinents} from "../components/continents.js";
 
 window.addEventListener('load', async () => {
-    await createTableContinents();
-    document.querySelectorAll(".button-Editar").forEach(button => {
-        button.addEventListener("click", (event) =>{
-            const continentId = event.target.id;
-            location.href = `editContinent.html?continentId=${continentId}`;
+    const sessionToken = sessionStorage.getItem("accessToken");
+    if(sessionToken !== undefined && sessionToken !== null && sessionToken !== 'null'){
+        await createTableContinents();
+        document.querySelectorAll(".button-Editar").forEach(button => {
+            button.addEventListener("click", (event) =>{
+                const continentId = event.target.id;
+                location.href = `editContinent.html?continentId=${continentId}`;
+            });
         });
-    });
 
-    document.querySelectorAll(".button-Eliminar").forEach(button => {
-        button.addEventListener("click", async (event) =>{
-            const continentId = event.target.id;
-            const userResponse = confirm("Está seguro que desea eliminar el Continente?");
-            if(userResponse){
-                await deleteContinent(continentId);
-                alert('Continent Eliminado Correctamente.');
-                location.href = 'indexAdmin.html';
-            }
+        document.querySelectorAll(".button-Eliminar").forEach(button => {
+            button.addEventListener("click", async (event) =>{
+                const continentId = event.target.id;
+                const userResponse = confirm("Está seguro que desea eliminar el Continente?");
+                if(userResponse){
+                    await deleteContinent(continentId);
+                    alert('Continent Eliminado Correctamente.');
+                    location.href = 'indexAdmin.html';
+                }
+            });
         });
-    });
+    } else {
+        alert("Por favor Iniciar Sesión");
+        location.href = "../login.html"
+    }
 });
 
 /**
@@ -98,12 +104,14 @@ const buttonComponent = (buttonLabel, id) => {
 
 const deleteContinent = async (id) => {
     try {
+        const sessionToken = sessionStorage.getItem("accessToken");
         let response = await fetch(`http://localhost:3000/api/continents/${id}`, 
             {
                 method: 'DELETE', // Especifica el tipo de solicitud como PUT
                 headers: {
                     'Content-Type': 'application/json', // Especifica que el contenido es JSON
-                },
+                    'Authorization': `${sessionToken}`
+                }
             }
         );
         return response;

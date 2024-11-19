@@ -9,7 +9,9 @@ window.addEventListener('load', ()=>{
         const password = document.getElementById('inputLoginPassword').value;
         const response = await getDataUser(userName, password);
         const userData = await response.json();
-        if (userData.length>0){
+        console.log(userData);
+        if (userData.accessToken){
+            sessionStorage.setItem("accessToken", userData.accessToken);
             location.href = './admin/indexAdmin.html';
         } else {
             alert("Usuario y/o Contraseña Incorrectos");
