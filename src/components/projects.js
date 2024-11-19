@@ -1,3 +1,5 @@
+const URL_API = 'https://dabit-server.vercel.app';
+
 const componentProjects = (projectName, imageBackground) => {
 
     const portfolioProject = document.createElement('div');
@@ -28,7 +30,7 @@ export const fetchProjectsData = (projectsDataPayload) => {
 
 export const getDataProjects = async () => {
     try {
-        let response = await fetch('http://localhost:3000/api/projects');
+        let response = await fetch(`${URL_API}/api/projects`);
         return await response.json();
     } catch (error) {
         console.error('Hubo un error');

@@ -1,3 +1,5 @@
+const URL_API = 'https://dabit-server.vercel.app';
+
 export const formSubmit = async (event) => {
     event.preventDefault(); //Evita que se pierda la información del usuario al no dejar que se recargue la página.
     try {
@@ -17,7 +19,7 @@ export const formSubmit = async (event) => {
                     message
                 };
                 console.log(messageComplete);
-                await fetch('http://localhost:3000/api/contacts', {
+                await fetch(`${URL_API}/api/contacts`, {
                     method: 'POST', // Especifica el tipo de solicitud como POST
                     headers: {
                         'Content-Type': 'application/json', // Especifica que el contenido es JSON

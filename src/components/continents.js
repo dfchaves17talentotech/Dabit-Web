@@ -1,3 +1,4 @@
+const URL_API = 'https://dabit-server.vercel.app';
 /**
  * Create continent in DOM HTML
  * @param {*} name 
@@ -39,7 +40,7 @@ export const fetchContinentData = async (continentDataPayload) => {
 
 export const getDataContinents = async () => {
     try {
-        let response = await fetch('http://localhost:3000/api/continents');
+        let response = await fetch(`${URL_API}/api/continents`);
         return await response.json();
     } catch (error) {
         console.error('Hubo un error');

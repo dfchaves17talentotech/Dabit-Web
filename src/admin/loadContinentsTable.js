@@ -1,5 +1,7 @@
 import {getDataContinents} from "../components/continents.js";
 
+const URL_API = 'https://dabit-server.vercel.app';
+
 window.addEventListener('load', async () => {
     const sessionToken = sessionStorage.getItem("accessToken");
     if(sessionToken !== undefined && sessionToken !== null && sessionToken !== 'null'){
@@ -105,7 +107,7 @@ const buttonComponent = (buttonLabel, id) => {
 const deleteContinent = async (id) => {
     try {
         const sessionToken = sessionStorage.getItem("accessToken");
-        let response = await fetch(`http://localhost:3000/api/continents/${id}`, 
+        let response = await fetch(`${URL_API}/api/continents/${id}`, 
             {
                 method: 'DELETE', // Especifica el tipo de solicitud como PUT
                 headers: {

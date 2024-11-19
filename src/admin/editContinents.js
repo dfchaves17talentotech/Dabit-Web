@@ -1,4 +1,5 @@
 
+const URL_API = 'https://dabit-server.vercel.app';
 window.addEventListener('load', async ()=>{
     const sessionToken = sessionStorage.getItem("accessToken");
     if(sessionToken !== undefined && sessionToken !== null && sessionToken !== 'null'){
@@ -31,7 +32,7 @@ window.addEventListener('load', async ()=>{
 const getDataContinentsById = async (id) => {
     try {
         const sessionToken = sessionStorage.getItem("accessToken");
-        let response = await fetch(`http://localhost:3000/api/continents/${id}`, {
+        let response = await fetch(`${URL_API}/api/continents/${id}`, {
             headers: {
                 'Content-Type': 'application/json', // Especifica que el contenido es JSON
                 'Authorization': `${sessionToken}`
@@ -46,7 +47,7 @@ const getDataContinentsById = async (id) => {
 const updateContinentData = async (name, coverage) => {
     try {
         const sessionToken = sessionStorage.getItem("accessToken");
-        let response = await fetch(`http://localhost:3000/api/continents?continentName=${name}`, 
+        let response = await fetch(`${URL_API}/api/continents?continentName=${name}`, 
             {
                 method: 'PUT', // Especifica el tipo de solicitud como PUT
                 headers: {

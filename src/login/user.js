@@ -1,4 +1,4 @@
-
+const URL_API = 'https://dabit-server.vercel.app';
 
 window.addEventListener('load', ()=>{
     const formLogin = document.getElementById("loginForm");
@@ -22,7 +22,7 @@ window.addEventListener('load', ()=>{
 
 export const getDataUser = async (userName, password) => {
     try {
-        let response = await fetch('http://localhost:3000/api/getUsers', 
+        let response = await fetch(`${URL_API}/api/getUsers`, 
             {
                 method: 'POST', // Especifica el tipo de solicitud como POST
                 headers: {
