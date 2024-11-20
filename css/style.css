@@ -184,46 +184,6 @@ h1 {
     padding: 4px 6px;
 }
 
-.bar-100 {
-    width: 100%;
-}
-
-.bar-90 {
-    width: 90%;
-}
-
-.bar-80 {
-    width: 80%;
-}
-
-.bar-70 {
-    width: 70%;
-}
-
-.bar-60 {
-    width: 60%;
-}
-
-.bar-50 {
-    width: 50%;
-}
-
-.bar-40 {
-    width: 40%;
-}
-
-.bar-30 {
-    width: 30%;
-}
-
-.bar-20 {
-    width: 20%;
-}
-
-.bar-10 {
-    width: 10%;
-}
-
 /*-------- LOCATIONS QUERIES -------*/
 
 @media screen and (min-width: 600px) {
@@ -305,36 +265,6 @@ h1 {
     background-size: cover;
     place-content: center;
     border-radius: 16px;
-}
-
-.project_1 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1526666923127-b2970f64b422");
-    background-position: bottom;
-}
-
-.project_2 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1541873676-a18131494184");
-    background-position: center;
-}
-
-.project_3 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1459909633680-206dc5c67abb");
-    background-position: center;
-}
-
-.project_4 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1446941303752-a64bb1048d54");
-    background-position: center;
-}
-
-.project_5 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1559943098-5c9e64d1ee16");
-    background-position: center;
-}
-
-.project_6 {
-    background-image: linear-gradient(#0002, #0009) ,url("https://images.unsplash.com/photo-1597120081843-631bddc57076");
-    background-position: center;
 }
 
 .portfolio_project:hover {
